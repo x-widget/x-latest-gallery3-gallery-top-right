@@ -17,16 +17,16 @@ $list = g::posts( array(
 	<?
 	if ( $list ) {
 		$_wr_id = $list[0]['wr_id'];
-		$imgsrc = x::post_thumbnail($_bo_table, $_wr_id, 307, 233);
+		$imgsrc = x::post_thumbnail($_bo_table, $_wr_id, 306, 236);
 		$img = $imgsrc['src'];
 		if ( empty($img) ) {
 			$_wr_content = db::result("SELECT wr_content FROM $g5[write_prefix]$_bo_table WHERE wr_id='$_wr_id'");
-			$image_from_tag = g::thumbnail_from_image_tag( $_wr_content, $_bo_table, 307, 233 );
-			if ( empty($image_from_tag) ) $image_from_tag = g::thumbnail_from_image_tag( "<img src='".x::url()."widget/$widget_config[name]/img/no_image.png'/>", $_bo_table, 538, 213 );
+			$image_from_tag = g::thumbnail_from_image_tag( $_wr_content, $_bo_table, 306, 236 );
+			if ( empty($image_from_tag) ) $image_from_tag = g::thumbnail_from_image_tag( "<img src='".x::url()."/widget/$widget_config[name]/img/no_image.png'/>", $_bo_table, 306, 236 );
 			$img = $image_from_tag;
 		}
 	}
-	else $img = x::url()."widget/$widget_config[name]/img/no_image.png";
+	else $img = x::url()."/widget/$widget_config[name]/img/no_image.png";
 	?>
 	
 	<div class='top-right'>
